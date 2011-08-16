@@ -28,7 +28,7 @@ namespace Monitor.ConsoleView
                 ScheduleEngine.ScheduleSqlJob(projectId);
             }
 
-
+            // Sample report message
             MessageFactory.CreateReport("P1", "G1");
 
             Console.WriteLine(">>>Enter 'Exit' to exit monitor.");

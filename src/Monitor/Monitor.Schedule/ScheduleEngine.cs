@@ -37,7 +37,7 @@ namespace Monitor.Schedule
 
         }
 
-        private static string ONE_MINUTE_PATTERN = "0 0/1 * * * ?";
+        //private static string ONE_MINUTE_PATTERN = "0 0/1 * * * ?";
         private static string FIVE_MINUTE_PATTERN = "0 0/5 * * * ?";
 
         public static void ScheduleHeartbeatJob(string projectId)
@@ -46,7 +46,7 @@ namespace Monitor.Schedule
             JobDetail job = new JobDetail(jobName, jobName, typeof(HeartbeatJob));
             job.JobDataMap["projectId"] = projectId;
 
-            CronTrigger trigger = new CronTrigger(jobName, jobName, jobName, jobName, ONE_MINUTE_PATTERN);
+            CronTrigger trigger = new CronTrigger(jobName, jobName, jobName, jobName, FIVE_MINUTE_PATTERN);
             engine.AddJob(job, true);
             DateTime ft = engine.ScheduleJob(trigger);
         }
@@ -58,7 +58,7 @@ namespace Monitor.Schedule
             job.JobDataMap["projectId"] = projectId;
             job.JobDataMap["lastTime"] = Monitor.Common.ScheduleSetting.GetLastTime(projectId);
 
-            CronTrigger trigger = new CronTrigger(jobName, jobName, jobName, jobName, FIVE_MINUTE_PATTERN);
+            CronTrigger trigger = new CronTrigger(jobName, jobName, jobName, jobName, Monitor.Common.SystemInternalSetting.Frequence);
             engine.AddJob(job, true);
             DateTime ft = engine.ScheduleJob(trigger);
         }

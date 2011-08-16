@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.Schedule", "Monitor.Schedule\Monitor.Schedule.csproj", "{C54CEA7E-C22B-47F4-B368-98B9A90456E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.Tray", "Monitor.Tray\Monitor.Tray.csproj", "{5F2DD5F7-E275-4C34-B394-F7D496D9503D}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Monitor.vsmdi
@@ -69,6 +71,16 @@ Global
 		{C54CEA7E-C22B-47F4-B368-98B9A90456E6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C54CEA7E-C22B-47F4-B368-98B9A90456E6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C54CEA7E-C22B-47F4-B368-98B9A90456E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Debug|x86.ActiveCfg = Debug|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Debug|x86.Build.0 = Debug|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Release|Any CPU.ActiveCfg = Release|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Release|x86.ActiveCfg = Release|x86
+		{5F2DD5F7-E275-4C34-B394-F7D496D9503D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

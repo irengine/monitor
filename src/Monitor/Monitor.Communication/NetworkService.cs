@@ -15,7 +15,7 @@ namespace Monitor.Communication
         {
             foreach (string project_id in SystemInternalSetting.Projects.Keys)
             {
-                SocketHandler handler = new SocketHandler("119.255.51.181", 4400);
+                SocketHandler handler = new SocketHandler(SystemInternalSetting.Ip, SystemInternalSetting.Port);
                 handlers.Add(project_id, handler);
             }
 

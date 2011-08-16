@@ -14,22 +14,22 @@ namespace Monitor.Common
 
         private static ILog log = LogManager.GetCurrentClassLogger();
 
-        public static string GetFrequency(string code)
-        {
-            string frequency = "30 0/5 * * * ?";
-            lock (syncLock)
-            {
-                if (!settings.ContainsKey(code))
-                {
-                    ScheduleConfiguration conf = new ScheduleConfiguration(code);
-                    conf.Frequency = frequency;
-                    settings[code] = conf;
-                }
+        //public static string GetFrequency(string code)
+        //{
+        //    string frequency = "30 0/5 * * * ?";
+        //    lock (syncLock)
+        //    {
+        //        if (!settings.ContainsKey(code))
+        //        {
+        //            ScheduleConfiguration conf = new ScheduleConfiguration(code);
+        //            conf.FREQUENCY = frequency;
+        //            settings[code] = conf;
+        //        }
 
-                frequency = ((ScheduleConfiguration)settings[code]).Frequency;
-            }
-            return frequency;
-        }
+        //        frequency = ((ScheduleConfiguration)settings[code]).FREQUENCY;
+        //    }
+        //    return frequency;
+        //}
 
         public static DateTime GetLastTime(String code)
         {

@@ -39,6 +39,21 @@ namespace Monitor.Common
             }
         }
 
+        public static string Ip
+        {
+            get { return conf.IP; }
+        }
+
+        public static int Port
+        {
+            get { return conf.PORT; }
+        }
+
+        public static string Frequence
+        {
+            get { return conf.FREQUENCY; }
+        }
+
         //public static string ProjectId
         //{
         //    get { return "321000013"; }

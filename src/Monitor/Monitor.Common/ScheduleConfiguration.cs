@@ -11,10 +11,13 @@ namespace Monitor.Common
     {
         public string Code;
         public DateTime LastTime;
-        public string Frequency;
+        public string FREQUENCY = "0 0/5 * * * ?";
+        public string IP = "119.255.51.181";
+        public int PORT = 4400;
         public string QUERY_PROJECTS_SQL = "QUERY_PROJECTS_SQL";
         public string QUERY_PROJECT_UPDATE_SQL = "QUERY_PROJECT_UPDATE_SQL";
         public string CONNECTION_STRING = "localhost";
+
 
         public ScheduleConfiguration()
             : base(false)

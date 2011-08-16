@@ -22,11 +22,14 @@ namespace Monitor.Communication
             foreach (DictionaryEntry de in handlers)
             {
                 SocketHandler handler = de.Value as SocketHandler;
-                handler.Start();
+
+
+                //handler.Start();
 
                 string projectId = de.Key.ToString();
                 string gatewayId = SystemInternalSetting.Projects[projectId].ToString();
-                handler.Handshake(projectId, gatewayId);
+                //handler.Handshake(projectId, gatewayId);
+                handler.Initialize(projectId, gatewayId);
             }
         }
 

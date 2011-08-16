@@ -18,6 +18,7 @@ namespace Monitor.Communication
             //queue = MessageQueueManager.GetSendQueue(Name);
             //handler = NetworkService.GetHandler(Name);
         }
+
         protected override void Execute()
         {
             Message message = MessageQueueManager.GetSendQueue(Name).Dequeue();
@@ -27,8 +28,16 @@ namespace Monitor.Communication
             }
             else
             {
-                Send(message);
-                Receive();
+                // if sent failed, push back
+                try
+                {
+                    Send(message);
+                    Receive();
+                }
+                catch
+                {
+                    MessageQueueManager.GetSendQueue(Name).Enqueue(message);
+                }
             }
         }
 

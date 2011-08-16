@@ -55,7 +55,9 @@
     <Compile Include="NetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MessageQueueService.cs" />
+    <Compile Include="Ward.cs" />
     <Compile Include="SocketHandler.cs" />
+    <Compile Include="SocketHandlerWard.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monitor.Common\Monitor.Common.csproj">

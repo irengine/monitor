@@ -13,8 +13,11 @@ namespace Monitor.Communication
     {
         private static ILog logger = LogManager.GetCurrentClassLogger();
 
+        private SocketHandlerWard ward = null;
         private string ip;
         private int port;
+
+        private string projectId, gatewayId;
 
         private bool isStarted = false;
 
@@ -28,6 +31,16 @@ namespace Monitor.Communication
         {
             this.ip = ip;
             this.port = port;
+            this.ward = new SocketHandlerWard(this);
+
+        }
+
+        public void Initialize(string projectId, string gatewayId)
+        {
+            this.projectId = projectId;
+            this.gatewayId = gatewayId;
+            ward.Initialize();
+            ward.Signal();
         }
 
         private Socket socket = null;
@@ -129,7 +142,7 @@ namespace Monitor.Communication
             socket.Ttl = 42;
         }
 
-        public bool Handshake(string projectId, string gatewayId)
+        public bool Handshake()
         {
             try
             {
@@ -275,7 +288,28 @@ namespace Monitor.Communication
 
         public int Send(byte[] bytes)
         {
-            return socket.Send(bytes);
+            int sent = 0;
+            try
+            {
+
+                sent = socket.Send(bytes);
+            }
+            catch (SocketException ex)
+            {
+                if (ex.SocketErrorCode == SocketError.WouldBlock ||
+                    ex.SocketErrorCode == SocketError.IOPending ||
+                    ex.SocketErrorCode == SocketError.NoBufferSpaceAvailable)
+                {
+                    // socket buffer is probably full, wait and try again
+                    System.Threading.Thread.Sleep(30);
+                }
+                else
+                {
+                    ward.Signal();
+                    throw ex;  // any serious error occurr
+                }
+            }
+            return sent;
         }
 
         public int Receive(byte[] buffer)

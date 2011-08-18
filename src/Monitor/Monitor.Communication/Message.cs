@@ -21,6 +21,13 @@ namespace Monitor.Communication
         public ValidationSection id_validate;
         public HeartBeatSection heart_beat;
         public DataSection data;
+
+        [XmlIgnore]
+        public bool id_validateSpecified { get { return id_validate != null; } }
+        [XmlIgnore]
+        public bool heart_beatSpecified { get { return heart_beat != null; } }
+        [XmlIgnore]
+        public bool dataSpecified { get { return data != null; } }
     }
 
     public class GeneralSection

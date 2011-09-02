@@ -59,6 +59,8 @@ namespace Monitor.Schedule
                 msg.common.gateway_id = gatewayId;
                 msg.common.type = MessageType.MESSAGE_TYPE_REPORT;
 
+                if (msg.data == null)
+                    msg.data = new DataSection();
                 msg.data.operation = MessageType.MESSAGE_TYPE_REPORT;
                 msg.data.sequence = ds.Tables[0].Rows[row]["seq"].ToString();
                 msg.data.time = ds.Tables[0].Rows[row]["time"].ToString();

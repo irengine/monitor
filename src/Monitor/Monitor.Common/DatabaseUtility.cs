@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using Common.Logging;
 
 namespace Monitor.Common
 {
     public class DatabaseUtility
     {
+        private static ILog logger = LogManager.GetCurrentClassLogger();
+
         public static DataSet Query(string connectionString, string sqlSyntax, string whereClause)
         {
             //Create a SqlConnection to the Northwind database.
@@ -37,6 +40,7 @@ namespace Monitor.Common
                 }
                 catch (Exception e)
                 {
+                    logger.Error(e);
                     throw new Exception(e.Message);
                 }
                 finally

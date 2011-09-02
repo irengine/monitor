@@ -33,6 +33,7 @@ namespace Monitor.Communication
             msg.common.gateway_id = gatewayId;
             msg.common.type = MessageType.MESSAGE_TYPE_REQUEST;
 
+            msg.id_validate = new ValidationSection();
             msg.id_validate.operation = MessageType.MESSAGE_TYPE_REQUEST;
 
             return msg;
@@ -57,6 +58,7 @@ namespace Monitor.Communication
             msg.common.gateway_id = gatewayId;
             msg.common.type = MessageType.MESSAGE_TYPE_AUTHENTICATION;
 
+            msg.id_validate = new ValidationSection();
             msg.id_validate.operation = MessageType.MESSAGE_TYPE_AUTHENTICATION;
             msg.id_validate.md5 = EncryptHelper.GetSequenceMd5(sequence);
 
@@ -82,6 +84,9 @@ namespace Monitor.Communication
             msg.common.gateway_id = gatewayId;
             msg.common.type = MessageType.MESSAGE_TYPE_HEART_BEAT;
 
+            msg.id_validate = new ValidationSection();
+            msg.heart_beat = new HeartBeatSection();
+
             msg.id_validate.operation = MessageType.MESSAGE_TYPE_HEART_BEAT;
 
             return msg;
@@ -106,6 +111,8 @@ namespace Monitor.Communication
             msg.common.gateway_id = gatewayId;
             msg.common.type = MessageType.MESSAGE_TYPE_REPORT;
 
+            if (msg.data == null)
+                msg.data = new DataSection();
             msg.data.operation = MessageType.MESSAGE_TYPE_REPORT;
             msg.data.sequence = "Z1";
             msg.data.time = String.Format("{0:yyyyMMddHHmmss}", DateTime.Now);

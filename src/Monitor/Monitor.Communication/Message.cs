@@ -12,9 +12,9 @@ namespace Monitor.Communication
         public Message()
         {
             common = new GeneralSection();
-            id_validate = new ValidationSection();
-            heart_beat = new HeartBeatSection();
-            data = new DataSection();
+            //id_validate = new ValidationSection();
+            //heart_beat = new HeartBeatSection();
+            //data = new DataSection();
         }
 
         public GeneralSection common;

@@ -137,7 +137,6 @@ namespace Monitor.Tray
         {
             logger.Debug("--->Show configuration<---");
             logger.Debug(SystemInternalSetting.QueryProjectsSQL);
-            logger.Debug(SystemInternalSetting.QueryProjectsSQL);
             logger.Debug(SystemInternalSetting.QueryProjectUpdateSQL);
 
             DataSet ds = DatabaseUtility.Query(SystemInternalSetting.ConnectionString, SystemInternalSetting.QueryProjectsSQL, "");

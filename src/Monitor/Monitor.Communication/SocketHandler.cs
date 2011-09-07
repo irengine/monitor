@@ -275,7 +275,18 @@ namespace Monitor.Communication
 
         public int Send(byte[] bytes)
         {
-            return socket.Send(bytes);
+            try
+            {
+                return socket.Send(bytes);
+            }
+            catch (SocketException se)
+            {
+                logger.Error(se);
+                logger.Info("Shutdown monitor");
+                System.Environment.Exit(0);
+            }
+
+            return 0;
         }
 
         public int Receive(byte[] buffer)
